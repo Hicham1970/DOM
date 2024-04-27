@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubbling</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: black;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid red;
+        margin: 12px;
+        width: 440px;
+        height: 250px;
+      }
+      .item {
+        width: 50px;
+        height: 50px;
+        border: 3px solid green;
+        align-items: center;
+        margin: 10px;
+        text-align: center;
+        padding: 12px 12px;
+        background-color: bisque;
+      }
+      .list {
+        border: 2px dotted darkgrey;
+        padding: 12px;
+        margin: 20px;
+      }
+      .formulaire {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid blue;
+        margin: 32px;
+        width: 440px;
+        height: 150px;
+      }
+      .formulaire label {
+        padding: 12px;
+        color: blue;
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      ul li {
+        list-style-type: none;
+        padding: 2px;
+        cursor: copy;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">id1</div>
+      <div class="item">id2</div>
+      <div class="item">id3</div>
+      <div class="item">id4</div>
+    </div>
+    <p id="réceptionnaire"></p>
+    <br /><br />
+    <div class="list">
+      <ul>
+        <li id="list1">Biology</li>
+        <li id="list2">Math</li>
+        <li id="list3">Philosophy</li>
+        <li id="list4">Sport</li>
+      </ul>
+    </div>
+    <div class="formulaire">
+      <label for="cursus" id="Cursus">Cursus :</label>
+      <input type="text" name="cursus" title="cursus" /><br /><br />
+      <button type="button" onclick="ajouter()">
+        Ajouter un élément à la liste
+      </button>
+    </div>
+
+    <script>
+      // selection du conteneur:
+
+      let conteneur = document.getElementsByClassName("container");
+
+      console.log(conteneur);
+
+      let boxes = document.getElementsByClassName("item");
+      console.log(boxes[0]);
+      for (i = 0; i < boxes.length; i++) {
+        boxes[i].addEventListener("click", function () {
+          document.getElementById("réceptionnaire").innerHTML =
+            "Le bouton cliqué est : " + this.innerText;
+          this.style.backgroundColor = "red";
+          this.parentElement.style.backgroundColor = "yellow";
+          this.nextElementSibling.style.backgroundColor = "purple";
+          this.previousElementSibling.style.backgroundColor = "cyan";
+        });
+      }
+    </script>
+  </body>
+</html>
