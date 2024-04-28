@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a form tag</title>
+  </head>
+  <body>
+    <p>
+      Le but de la manip est de créer une sorte de mini-todo list , la valeur de
+      chaque entrée dans l'input sera enregistrée dans la div au sein des
+      listItem , ceci sera possible une fois clicker sur le bouton submit. Add
+      an event listener to the button, il est apparemment impossible d'installer
+      un écouteur d'événement sur un bouton fraîchement créé.....!!!!? oui c'est
+      possible il faut juste le faire après l'avoir ajouté au DOM.
+    </p>
+    <script>
+      const form = document.createElement("form");
+      form.setAttribute("id", "registrationForm");
+      // Create Elements of the form
+      //label:
+      const nameLabel = document.createElement("label");
+      nameLabel.innerText = "name : ";
+      //input
+      const nameInput = document.createElement("input");
+      nameLabel.textHolder = "name :";
+      nameInput.setAttribute("type", "text");
+      nameLabel.setAttribute("id", "lblName");
+      nameInput.setAttribute("id", "name");
+      nameInput.placeholder = "TO DO";
+      //button
+      const btn = document.createElement("button");
+      btn.innerText = "Submit";
+      btn.setAttribute("type", "submit");
+
+      // Append elements to form and then append the form to the document.
+      document.body.appendChild(form);
+      form.appendChild(nameLabel);
+      form.appendChild(nameInput);
+      form.appendChild(btn);
+
+      // add the event listener to the form, not au button, and prevent
+      //default behavior (page refresh) when clicking on submit button
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const myVal = nameInput.value;
+
+        // //Create a div to hold the tasks:
+        const holder = document.createElement("div");
+        holder.setAttribute("class", "taskHolderClass");
+        // // Create a list inside this div:
+        const myList = document.createElement("ul");
+        myList.setAttribute("class", "listItemsClass");
+        // // create the list items:
+        const listItem = document.createElement("li");
+        listItem.value = "";
+        listItem.innerText += myVal;
+
+        // append the list item to myList:
+        myList.appendChild(listItem);
+        //append the List to the Holder
+        holder.appendChild(myList);
+        //append the div to the document
+        document.body.appendChild(holder);
+        // clear the input after submit:
+        nameInput.value = "";
+        nameInput.focus();
+
+        // Comment faire supprimer les tasks:
+        // on va faire un écouteur d'event sur les li fraîchement créé, pour le supprimer lors d'un clic dessus
+        // add an event listener to the task items:
+        listItem.addEventListener("click", function () {
+          myList.removeChild(listItem);
+        });
+      });
+    </script>
+  </body>
+</html>

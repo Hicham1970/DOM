@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Api</title>
+    <style>
+      body {
+        margin: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        border: 3px solid red;
+      }
+      button {
+        position: absolute;
+        top: 10px;
+        left: 390px;
+        margin: 3px;
+        background-color: blueviolet;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="">
+        <label for="nameInput">Task : </label>
+        <input type="text" placeholder="TO DO" id="task" /><br /><br />
+        <button type="submit" id="btn">Submit</button>
+      </form>
+      <script>
+        // selection element du form
+        const myForm = document.querySelector("form");
+        console.log(myForm);
+        console.log(myForm);
+        const myInput = document.querySelector("input");
+        console.log(myInput);
+        const myBtn = document.getElementById("#btn");
+        console.log(myBtn);
+
+        // Add Event listener:
+        document.addEventListener("submit", () => {
+          console.log("hello world");
+        });
+      </script>
+    </div>
+  </body>
+</html>

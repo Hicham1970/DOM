@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do</title>
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <input title="todo" id="newTaskField" type="text" />
+    <button type="button" id="btn">Add Task</button>
+
+    <script>
+      const newTaskField = document.getElementById("newTaskField");
+      const btn = document.getElementById("btn");
+      const todoList = document.createElement("ul");
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        // create a list item inside the ul:
+        const listItem = document.createElement("li");
+        // add text node with input value
+        listItem.appendChild(document.createTextNode(newTaskField.value));
+        // add list item to ul:
+        todoList.appendChild(listItem);
+        // reset input field
+        newTaskField.value = "";
+        //append ul to DOM:
+        document.body.appendChild(todoList);
+        // focus on input field:
+        newTaskField.focus();
+      });
+    </script>
+  </body>
+</html>
