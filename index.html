@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="style.css" rel="stylesheet" />
     <title>JavaScript DOM Tutorials</title>
+    <script src="CheckboxChang.js"></script>
   </head>
 
   <body>
@@ -45,7 +46,28 @@
         <input type="text" placeholder="Add a book..." />
         <button type="submit">Add</button>
       </form>
+      <div id="tabbed-content">
+        <ul class="tabs">
+          <li data-cible="#about" class="active">About</li>
+          <li data-cible="#contact">Contact</li>
+        </ul>
+        <div class="panel active" id="about">
+          <p>Content for About tab....</p>
+          <p>
+            Lorem ipsum dolor sit abet, connecteur adipisicing élit. Nam quos,
+            quam qu’busa, laudanum officias doloremque vitae voltâtes commode
+            incident preferences, ipsum capitate béate voluptueux modi?
+          </p>
+        </div>
+        <div class="panel" id="contact">
+          <p>Content for Contact tab....</p>
+          <p>
+            Lorem ipsum dolor sit abet, connecteur adipisicing élit. Nam quos,
+            quam qu’busa, laudanum officias doloremque vitae voltâtes commode
+            incident preferences, ipsum capitate béate voluptueux modi?
+          </p>
+        </div>
+      </div>
     </div>
-    <script src="CheckboxChang.js"></script>
   </body>
 </html>
